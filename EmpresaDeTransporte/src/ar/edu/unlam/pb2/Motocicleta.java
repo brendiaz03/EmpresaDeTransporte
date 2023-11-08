@@ -6,9 +6,5 @@ public class Motocicleta extends Vehiculo{
 		super(patente, cantidadKM, cantidadMaximaDePasajeros);
 	}
 
-	@Override
-	public void ingresarPasajero() {
-		
-	}
 
 }
