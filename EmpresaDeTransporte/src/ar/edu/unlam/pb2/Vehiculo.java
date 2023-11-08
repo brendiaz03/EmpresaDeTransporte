@@ -8,7 +8,7 @@ public abstract class Vehiculo {
 	private Integer patente;
 	private Integer cantidadMaxDePasajeros;
 	private Double cantidadKM;
-	private List<Pasajero> pasajeros;
+	protected List<Persona> pasajeros;
 	private Chofer chofer;
 	
 	public Vehiculo(Integer patente,Double cantidadKM ,Integer cantidadMaximaDePasajeros) {
@@ -77,10 +77,22 @@ public abstract class Vehiculo {
 			setChofer(nuevo);
 			return true;
 		}else {
+
 			return false;
 		}
 	};
-	
-	public abstract void ingresarPasajero();
+
+	public Boolean ingresarPasajero(Persona nueva) {
+		if(nueva.equals(null)) {
+			PasajerosNullException e = new PasajerosNullException();
+			throw e;
+		}
+		if(this.getCantidadMaxDePasajeros().equals(getPasajeros().size()+1)){
+			return false;
+		}else {
+			pasajeros.add(nueva);
+			return true;
+		}
+	};
 	
 }
